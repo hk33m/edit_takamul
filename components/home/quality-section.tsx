@@ -33,7 +33,7 @@ export function QualitySection() {
             <div className="aspect-[4/3] overflow-hidden rounded-2xl">
               <img src="/quality-control-laboratory-feed-testing.jpg" alt="مختبر ضبط الجودة" className="h-full w-full object-cover" />
             </div>
-            <div className="absolute -bottom-6 -left-6 rounded-xl bg-primary p-6 text-primary-foreground shadow-xl">
+            <div className="absolute -bottom-2 -left-2 rounded-xl bg-primary p-6 text-primary-foreground shadow-xl">
               <div className="text-3xl font-bold">100%</div>
               <div className="text-sm">التزام بالجودة</div>
             </div>
