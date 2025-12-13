@@ -14,7 +14,7 @@ export function CTASection() {
       <div className="absolute inset-0 bg-primary/90" />
 
       <div className="container relative mx-auto px-4 text-center lg:px-8">
-        <h2 className="mb-4 text-3xl font-bold text-primary-foreground lg:text-4xl text-balance">
+        <h2 className="mb-4 text-3xl font-bold text-takarr lg:text-4xl text-balance">
           هل أنت مستعد للارتقاء بإنتاجك؟
         </h2>
         <p className="mx-auto mb-8 max-w-2xl text-lg text-primary-foreground/90 leading-relaxed">
@@ -23,7 +23,7 @@ export function CTASection() {
         </p>
 
         <div className="mb-8 flex flex-wrap items-center justify-center gap-4">
-          <Button asChild size="lg" variant="secondary" className="group">
+          <Button asChild size="lg" variant="secondary" className="group bg-takarr">
             <Link href="/contact">
               طلب عرض سعر
               <ArrowLeft className="mr-2 h-5 w-5 transition-transform group-hover:-translate-x-1" />

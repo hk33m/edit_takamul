@@ -25,8 +25,6 @@ const navigation = [
   { name: "الجودة", href: "/quality" },
   { name: "عملاؤنا", href: "/clients" },
   { name: "الاستدامة", href: "/sustainability" },
-  { name: "الوظائف", href: "/careers" },
-  { name: "الأخبار", href: "/news" },
   { name: "تواصل معنا", href: "/contact" },
 ]
 
@@ -40,11 +38,11 @@ export default function Navbar() {
       <nav className="container mx-auto flex h-16 items-center justify-between px-4 lg:px-8">
         {/* Logo - Right side for RTL */}
         <Link href="/" className="flex items-center gap-3">
-          <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary">
-            <span className="text-lg font-bold text-primary-foreground">ت</span>
+          <div className="flex h-10 w-10 items-center justify-center rounded-lg border">
+            <span className="text-lg font-bold "><img src="/512-01.png"></img></span>
           </div>
           <div className=" sm:block">
-            <p className="text-sm font-bold text-foreground">مصنع التكامل للأعلاف</p>
+            <p className="text-sm font-bold text-taka">مصنع التكامل للأعلاف</p>
             <p className="text-xs text-muted-foreground">Al-Takamol Factory</p>
           </div>
         </Link>
@@ -63,7 +61,7 @@ export default function Navbar() {
               {item.name}
             </Link>
           ))}
-          <DropdownMenu>
+          {/* <DropdownMenu>
             <DropdownMenuTrigger asChild>
               <Button variant="ghost" size="sm" className="text-muted-foreground">
                 المزيد
@@ -76,7 +74,7 @@ export default function Navbar() {
                 </DropdownMenuItem>
               ))}
             </DropdownMenuContent>
-          </DropdownMenu>
+          </DropdownMenu> */}
         </div>
 
         {/* Actions - Left side for RTL */}
@@ -85,14 +83,14 @@ export default function Navbar() {
             variant="ghost"
             size="icon"
             onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-            className="hidden sm:flex"
+            className="border sm:flex"
           >
             <Sun className="h-5 w-5 rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
             <Moon className="absolute h-5 w-5 rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
             <span className="sr-only">تبديل المظهر</span>
           </Button>
 
-          <Button asChild className="hidden sm:flex">
+          <Button asChild className="hidden bg-taka sm:flex">
             <Link href="/contact">
               <Phone className="ml-2 h-4 w-4" />
               تواصل معنا
@@ -102,7 +100,7 @@ export default function Navbar() {
           {/* Mobile Menu */}
           <Sheet open={isOpen} onOpenChange={setIsOpen}>
             <SheetTrigger asChild className="lg:hidden">
-              <Button variant="ghost" size="icon">
+              <Button variant="ghost" size="icon" className={"border"}>
                 <Menu className="h-5 w-5" />
                 <span className="sr-only">فتح القائمة</span>
               </Button>
@@ -126,15 +124,7 @@ export default function Navbar() {
                     {item.name}
                   </Link>
                 ))}
-                <div className="mt-4 flex items-center gap-2 border-t pt-4">
-                  <Button variant="outline" size="icon" onClick={() => setTheme(theme === "dark" ? "light" : "dark")}>
-                    <Sun className="h-5 w-5 rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
-                    <Moon className="absolute h-5 w-5 rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
-                  </Button>
-                  <Button asChild className="flex-1">
-                    <Link href="/contact">تواصل معنا</Link>
-                  </Button>
-                </div>
+                
               </div>
             </SheetContent>
           </Sheet>

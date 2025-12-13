@@ -33,16 +33,16 @@ export function QualitySection() {
             <div className="aspect-[4/3] overflow-hidden rounded-2xl">
               <img src="/quality-control-laboratory-feed-testing.jpg" alt="مختبر ضبط الجودة" className="h-full w-full object-cover" />
             </div>
-            <div className="absolute -bottom-2 -left-2 rounded-xl bg-primary p-6 text-primary-foreground shadow-xl">
-              <div className="text-3xl font-bold">100%</div>
+            <div className="absolute -bottom-2 -left-2 rounded-xl bg-primary p-6 text-primary-foreground shadow-xl bg-takar">
+              <div className="text-3xl font-bold ">100%</div>
               <div className="text-sm">التزام بالجودة</div>
             </div>
           </div>
 
           {/* Content */}
           <div className="order-1 lg:order-2">
-            <span className="mb-4 inline-block text-sm font-semibold text-primary">الجودة والمعايير</span>
-            <h2 className="mb-6 text-3xl font-bold leading-tight lg:text-4xl text-balance">
+            <span className="mb-4 inline-block text-sm font-semibold text-takar">الجودة والمعايير</span>
+            <h2 className="mb-6 text-3xl font-bold leading-tight lg:text-4xl text-balance text-taka">
               التزامنا الراسخ بأعلى معايير الجودة العالمية
             </h2>
             <p className="mb-8 text-muted-foreground leading-relaxed">
@@ -54,10 +54,10 @@ export function QualitySection() {
               {qualityFeatures.map((feature, index) => (
                 <div key={index} className="flex gap-4">
                   <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary">
-                    <feature.icon className="h-5 w-5" />
+                    <feature.icon className="h-5 w-5 text-takar" />
                   </div>
                   <div>
-                    <h3 className="mb-1 font-semibold">{feature.title}</h3>
+                    <h3 className="mb-1 font-semibold text-taka">{feature.title}</h3>
                     <p className="text-sm text-muted-foreground">{feature.description}</p>
                   </div>
                 </div>

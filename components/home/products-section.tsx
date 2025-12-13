@@ -44,8 +44,8 @@ export function ProductsSection() {
     <section className="bg-muted/30 py-20 lg:py-28">
       <div className="container mx-auto px-4 lg:px-8">
         <div className="mb-12 text-center">
-          <span className="mb-4 inline-block text-sm font-semibold text-primary">منتجاتنا</span>
-          <h2 className="mb-4 text-3xl font-bold lg:text-4xl">حلول غذائية متخصصة</h2>
+          <span className="mb-4 inline-block text-sm font-semibold text-takar">منتجاتنا</span>
+          <h2 className="mb-4 text-3xl font-bold lg:text-4xl text-taka">حلول غذائية متخصصة</h2>
           <p className="mx-auto max-w-2xl text-muted-foreground">
             نقدم منتجات متنوعة ومتخصصة تلبي مختلف احتياجات المربين والمزارع، مصنوعة وفق أحدث التقنيات وأعلى المعايير
             العالمية.
@@ -64,13 +64,13 @@ export function ProductsSection() {
                 <Badge className="absolute top-4 right-4 bg-secondary text-secondary-foreground">{product.badge}</Badge>
               </div>
               <CardHeader>
-                <CardTitle className="text-xl">{product.title}</CardTitle>
-                <CardDescription className="text-xs">{product.titleEn}</CardDescription>
+                <CardTitle className="text-xl text-taka">{product.title}</CardTitle>
+                <CardDescription className="text-xs text-takar">{product.titleEn}</CardDescription>
               </CardHeader>
               <CardContent>
                 <p className="mb-4 text-sm text-muted-foreground leading-relaxed">{product.description}</p>
                 <Link
-                  href={`/products#${product.id}`}
+                  href={`/products?tab=${product.id}`}
                   className="inline-flex items-center text-sm font-medium text-primary hover:underline"
                 >
                   المزيد من التفاصيل
@@ -82,7 +82,7 @@ export function ProductsSection() {
         </div>
 
         <div className="mt-12 text-center">
-          <Button asChild size="lg">
+          <Button asChild size="lg" className="bg-takar">
             <Link href="/products">
               عرض جميع المنتجات
               <ArrowLeft className="mr-2 h-5 w-5" />

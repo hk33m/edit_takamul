@@ -1,10 +1,9 @@
 const partners = [
-  { name: "شركة أبناء ياشيخ", logo: "/arabic-company-logo-1.jpg" },
-  { name: "شركة التنمية للدواجن", logo: "/poultry-company-logo-arabic.jpg" },
-  { name: "مزارع الوطنية", logo: "/national-farms-logo.jpg" },
-  { name: "شركة الصفا للمواشي", logo: "/livestock-company-logo.jpg" },
-  { name: "مجموعة الراجحي", logo: "/rajhi-group-logo.jpg" },
-  { name: "شركة حائل الزراعية", logo: "/agricultural-company-logo.jpg" },
+  { name: "شركة  التنمية", logo: "/tn.jpeg" },
+  { name: "شركة بلدي ", logo: "/balade.png" },
+  { name: "شركة مزارعنا  ", logo: "/mazarena.png" },
+  { name: "شركة اوراسكوم ", logo: "/unnamed.png" },
+ 
 ]
 
 export function PartnersSection() {
@@ -12,8 +11,8 @@ export function PartnersSection() {
     <section className="bg-muted/30 py-16 lg:py-20">
       <div className="container mx-auto px-4 lg:px-8">
         <div className="mb-10 text-center">
-          <span className="mb-4 inline-block text-sm font-semibold text-primary">شركاء النجاح</span>
-          <h2 className="mb-4 text-2xl font-bold lg:text-3xl">عملاؤنا وشركاؤنا الاستراتيجيون</h2>
+          <span className="mb-4 inline-block text-sm font-semibold text-takar">شركاء النجاح</span>
+          <h2 className="mb-4 text-2xl font-bold lg:text-3xl text-taka">عملاؤنا وشركاؤنا الاستراتيجيون</h2>
           <p className="mx-auto max-w-xl text-muted-foreground">نفخر بشراكاتنا مع كبرى المزارع والشركات في المملكة</p>
         </div>
 

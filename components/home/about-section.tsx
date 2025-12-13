@@ -32,8 +32,8 @@ export function AboutSection() {
         <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
           {/* Content */}
           <div>
-            <span className="mb-4 inline-block text-sm font-semibold text-primary">نبذة عن المصنع</span>
-            <h2 className="mb-6 text-3xl font-bold leading-tight lg:text-4xl text-balance">
+            <span className="mb-4 inline-block text-sm font-semibold text-takar">نبذة عن المصنع</span>
+            <h2 className="mb-6 text-3xl font-bold leading-tight lg:text-4xl text-balance text-taka">
               أحد أعمدة صناعة الأعلاف في المملكة العربية السعودية
             </h2>
             <p className="mb-6 text-muted-foreground leading-relaxed">
@@ -44,7 +44,7 @@ export function AboutSection() {
               نؤمن أن الأعلاف ليست مجرد منتج، بل هي أساس نجاح قطاع الثروة الحيوانية، لذلك صممنا حلولاً غذائية متكاملة
               ترتقي بمستوى الإنتاج وتمنح المربين والمزارع الكبرى ميزة تنافسية حقيقية.
             </p>
-            <Button asChild className="group">
+            <Button asChild className="group bg-takar">
               <Link href="/about">
                 اقرأ المزيد
                 <ArrowLeft className="mr-2 h-4 w-4 transition-transform group-hover:-translate-x-1" />
@@ -62,7 +62,7 @@ export function AboutSection() {
                 <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10 text-primary transition-colors group-hover:bg-primary group-hover:text-primary-foreground">
                   <feature.icon className="h-6 w-6" />
                 </div>
-                <h3 className="mb-2 font-semibold">{feature.title}</h3>
+                <h3 className="mb-2 font-semibold text-taka">{feature.title}</h3>
                 <p className="text-sm text-muted-foreground">{feature.description}</p>
               </div>
             ))}

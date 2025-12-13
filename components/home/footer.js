@@ -9,16 +9,13 @@ const footerLinks = {
     { name: "الاستدامة", href: "/sustainability" },
   ],
   products: [
-    { name: "أعلاف الأمهات", href: "/products#breeder" },
-    { name: "أعلاف البياض", href: "/products#layer" },
-    { name: "أعلاف اللاحم", href: "/products#broiler" },
-    { name: "أعلاف الماشية", href: "/products#cattle" },
+    { name: "أعلاف الأمهات", href: "/products?tab=breeder" },
+    { name: "أعلاف البياض", href: "/products?tab=layer" },
+    { name: "أعلاف اللاحم", href: "/products?tab=broiler" },
+    { name: "أعلاف الماشية", href: "/products?tab=cattle" },
   ],
   support: [
     { name: "تواصل معنا", href: "/contact" },
-    { name: "الوظائف", href: "/careers" },
-    { name: "الأخبار", href: "/news" },
-    { name: "الشركاء", href: "/clients" },
   ],
 }
 
@@ -30,11 +27,11 @@ export default function Footer() {
           {/* Company Info */}
           <div className="space-y-4">
             <div className="flex items-center gap-3">
-              <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary">
-                <span className="text-lg font-bold text-primary-foreground">ت</span>
+              <div className="flex h-10 w-10 items-center justify-center rounded-lg border">
+                <span className="text-lg font-bold "><img src="/512-01.png"></img></span>
               </div>
               <div>
-                <p className="font-bold text-foreground">مصنع التكامل للأعلاف</p>
+                <p className="font-bold text-taka">مصنع التكامل للأعلاف</p>
                 <p className="text-xs text-muted-foreground">Al-Takamol Factory</p>
               </div>
             </div>
@@ -59,7 +56,7 @@ export default function Footer() {
 
           {/* Company Links */}
           <div>
-            <h4 className="mb-4 font-semibold text-foreground">الشركة</h4>
+            <h4 className="mb-4 font-semibold text-taka">الشركة</h4>
             <ul className="space-y-2">
               {footerLinks.company.map((link) => (
                 <li key={link.href}>
@@ -76,7 +73,7 @@ export default function Footer() {
 
           {/* Products Links */}
           <div>
-            <h4 className="mb-4 font-semibold text-foreground">منتجاتنا</h4>
+            <h4 className="mb-4 font-semibold text-taka">منتجاتنا</h4>
             <ul className="space-y-2">
               {footerLinks.products.map((link) => (
                 <li key={link.href}>
@@ -93,7 +90,7 @@ export default function Footer() {
 
           {/* Support Links */}
           <div>
-            <h4 className="mb-4 font-semibold text-foreground">الدعم</h4>
+            <h4 className="mb-4 font-semibold text-taka">الدعم</h4>
             <ul className="space-y-2">
               {footerLinks.support.map((link) => (
                 <li key={link.href}>

@@ -110,7 +110,7 @@ export default function AboutPage() {
                     className="h-full w-full object-cover"
                   />
                 </div>
-                <div className="absolute -bottom-6 -left-6 rounded-xl bg-secondary p-6 text-secondary-foreground shadow-xl">
+                <div className="absolute -bottom-2 -left-2 rounded-xl bg-secondary p-6 text-secondary-foreground shadow-xl">
                   <div className="text-3xl font-bold">2022</div>
                   <div className="text-sm">سنة التأسيس</div>
                 </div>

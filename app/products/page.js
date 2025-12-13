@@ -1,5 +1,6 @@
 "use client";
-
+import { useSearchParams } from "next/navigation"
+import { useEffect } from "react"
 import { useState } from "react";
 import  Navbar  from "@/components/home/navbar";
 import  Footer  from "@/components/home/footer";
@@ -97,7 +98,24 @@ const products = [
 ];
 
 export default function ProductsPage() {
-  const [activeTab, setActiveTab] = useState("breeder");
+  
+  const searchParams = useSearchParams()
+const initialTab = searchParams.get("tab") || "breeder"
+
+const [activeTab, setActiveTab] = useState(initialTab)
+
+useEffect(() => {
+  const paramTab = searchParams.get("tab")
+  if (paramTab) {
+    setActiveTab(paramTab)
+
+    // بعد تغيير التاب — ننزل للسكشن
+    setTimeout(() => {
+      window.scrollTo({ top: 300, behavior: "smooth" })
+    }, 100)
+  }
+}, [searchParams])
+
 
   return (
     <div className="flex min-h-screen flex-col">

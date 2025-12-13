@@ -5,18 +5,27 @@ import { ThemeProvider } from "@/components/theme-provider";
 export const metadata = {
   title: "مصنع التكامل للأعلاف | Al-Takamol Factory for Fodder",
   description:
-    "مصنع التكامل للأعلاف - الشريك الموثوق في صناعة أعلاف الدواجن والماشية في المملكة العربية السعودية. طاقة إنتاجية تصل إلى 120 طن في الساعة.",
-  keywords: ["أعلاف", "دواجن", "ماشية", "السعودية", "feed", "poultry", "livestock"],
+    "مصنع التكامل للأعلاف في المملكة العربية السعودية - الشريك الموثوق لإنتاج أعلاف الدواجن والماشية عالية الجودة بقدرة إنتاجية تصل إلى 120 طن في الساعة. نقدم منتجات أعلاف عضوية ومدعمة بالفيتامينات لتغذية أفضل لمزارع الدواجن والماشية.",
+  keywords: [
+    "أعلاف", "أعلاف دواجن", "أعلاف ماشية", "feed", "poultry feed", "livestock feed",
+    "مصنع أعلاف", "Al-Takamol Factory", "مصنع الأعلاف السعودية", "أعلاف عالية الجودة",
+    "أعلاف للحيوانات", "أعلاف الدواجن في السعودية", "تغذية الماشية", "مزارع الدواجن",
+    "مزارع الماشية", "منتجات أعلاف", "أعلاف عضوية", "أعلاف مدعمة بالفيتامينات",
+    "إنتاج الأعلاف", "توريد الأعلاف", "أعلاف المملكة العربية السعودية", 
+    "دواجن", "ماشية", "مزارع", "تربية الدواجن", "تربية الماشية"
+  ],
   generator: "v0.app",
   icons: {
     icon: [
-      { url: "/icon-light-32x32.png", media: "(prefers-color-scheme: light)" },
-      { url: "/icon-dark-32x32.png", media: "(prefers-color-scheme: dark)" },
-      { url: "/icon.svg", type: "image/svg+xml" },
+      { url: "/32-01.png" },              // Favicon للتبويب والمتصفح
+      { url: "/icon.svg", type: "image/svg+xml" } // SVG عام
     ],
-    apple: "/apple-icon.png",
+    apple: "/180-01.png",           // iPhone/iPad Home Screen
+    android: "/192.png",       // Android Home Screen / PWA
+    shortcut: "/512-01.png"               // PWA عالية الجودة
   },
-}
+};
+
 export default function RootLayout({ children }) {
   return (
     <html lang="en" suppressHydrationWarning>

@@ -76,7 +76,7 @@ export function HeroSection() {
           ))}
 
           <div className="flex flex-wrap gap-4">
-            <Button asChild size="lg" className="group">
+            <Button asChild size="lg" className="group bg-takar">
               <Link href="/products">
                 استكشف منتجاتنا
                 <ArrowLeft className="mr-2 h-5 w-5 transition-transform group-hover:-translate-x-1" />
