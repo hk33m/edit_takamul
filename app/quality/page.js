@@ -119,7 +119,7 @@ export default function QualityPage() {
             />
           </div>
           <div className="container relative mx-auto px-4 text-center lg:px-8">
-            <h1 className="mb-4 text-4xl font-bold text-primary-foreground lg:text-5xl">
+            <h1 className="mb-4 text-4xl font-bold text-takarr lg:text-5xl">
               الجودة والشهادات
             </h1>
             <p className="mx-auto max-w-2xl text-lg text-primary-foreground/90">
@@ -132,10 +132,10 @@ export default function QualityPage() {
         <section className="py-16 lg:py-24">
           <div className="container mx-auto px-4 lg:px-8">
             <div className="mb-12 text-center">
-              <span className="mb-4 inline-block text-sm font-semibold text-primary">
+              <span className="mb-4 inline-block text-sm font-semibold text-takar">
                 سياسة الجودة
               </span>
-              <h2 className="mb-4 text-3xl font-bold lg:text-4xl">
+              <h2 className="mb-4 text-3xl font-bold lg:text-4xl text-taka" >
                 ركائز الجودة لدينا
               </h2>
               <p className="mx-auto max-w-2xl text-muted-foreground">
@@ -150,7 +150,7 @@ export default function QualityPage() {
                   className="group text-center transition-all hover:shadow-lg"
                 >
                   <CardHeader>
-                    <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-primary/10 text-primary transition-colors group-hover:bg-primary group-hover:text-primary-foreground">
+                    <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-takarr text-primary transition-colors group-hover:bg-primary group-hover:text-primary-foreground">
                       <pillar.icon className="h-7 w-7" />
                     </div>
                     <CardTitle className="text-lg">{pillar.title}</CardTitle>
@@ -184,14 +184,14 @@ export default function QualityPage() {
             <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
               {inspectionSteps.map((step, index) => (
                 <Card key={index} className="relative overflow-hidden">
-                  <div className="absolute -left-4 -top-4 flex h-16 w-16 items-center justify-center rounded-full bg-primary/10 text-3xl font-bold text-primary/30">
+                  <div className="absolute -left-4 -top-4 flex h-16 w-16 items-center justify-center rounded-full bg-takarr text-3xl font-bold text-primary/30">
                     {index + 1}
                   </div>
                   <CardHeader className="pt-8">
-                    <div className="mb-3 flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10 text-primary">
+                    <div className="mb-3 flex h-12 w-12 items-center justify-center rounded-lg bg-takarr text-primary">
                       <step.icon className="h-6 w-6" />
                     </div>
-                    <CardTitle className="text-lg">{step.title}</CardTitle>
+                    <CardTitle className="text-lg text-taka">{step.title}</CardTitle>
                   </CardHeader>
                   <CardContent>
                     <p className="mb-4 text-sm text-muted-foreground">
@@ -200,7 +200,7 @@ export default function QualityPage() {
                     <ul className="space-y-1">
                       {step.tests.map((test, i) => (
                         <li key={i} className="flex items-center gap-2 text-sm">
-                          <CheckCircle className="h-4 w-4 text-primary" />
+                          <CheckCircle className="h-4 w-4 text-takar" />
                           <span>{test}</span>
                         </li>
                       ))}
@@ -217,10 +217,10 @@ export default function QualityPage() {
           <div className="container mx-auto px-4 lg:px-8">
             <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
               <div>
-                <span className="mb-4 inline-block text-sm font-semibold text-primary">
+                <span className="mb-4 inline-block text-sm font-semibold text-takar">
                   الشهادات والاعتمادات
                 </span>
-                <h2 className="mb-6 text-3xl font-bold lg:text-4xl">
+                <h2 className="mb-6 text-3xl font-bold lg:text-4xl text-taka">
                   معتمدون دولياً
                 </h2>
                 <p className="mb-8 text-muted-foreground leading-relaxed">
@@ -255,7 +255,7 @@ export default function QualityPage() {
                     className="h-full w-full object-cover"
                   />
                 </div>
-                <div className="absolute -bottom-6 -right-6 rounded-xl bg-primary p-6 text-primary-foreground shadow-xl">
+                <div className="absolute -bottom-2 -right-2 rounded-xl bg-taka p-6 text-primary-foreground shadow-xl">
                   <div className="text-3xl font-bold">100%</div>
                   <div className="text-sm">نسبة المطابقة</div>
                 </div>
@@ -268,10 +268,10 @@ export default function QualityPage() {
         <section className="bg-muted/30 py-16 lg:py-24">
           <div className="container mx-auto px-4 lg:px-8">
             <div className="mb-12 text-center">
-              <span className="mb-4 inline-block text-sm font-semibold text-primary">
+              <span className="mb-4 inline-block text-sm font-semibold text-takar">
                 الأسئلة الشائعة
               </span>
-              <h2 className="mb-4 text-3xl font-bold lg:text-4xl">
+              <h2 className="mb-4 text-3xl font-bold lg:text-4xl text-taka">
                 أسئلة حول الجودة
               </h2>
             </div>

@@ -1,6 +1,6 @@
-import Link from "next/link"
-import { Phone, Mail, ArrowLeft } from "lucide-react"
-import { Button } from "@/components/ui/button"
+import Link from "next/link";
+import { Phone, Mail, ArrowLeft } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 export function CTASection() {
   return (
@@ -18,12 +18,17 @@ export function CTASection() {
           هل أنت مستعد للارتقاء بإنتاجك؟
         </h2>
         <p className="mx-auto mb-8 max-w-2xl text-lg text-primary-foreground/90 leading-relaxed">
-          تواصل معنا اليوم واكتشف كيف يمكن لحلولنا الغذائية المتكاملة أن تحقق لك ميزة تنافسية حقيقية وتعزز من كفاءة
-          مشروعك.
+          تواصل معنا اليوم واكتشف كيف يمكن لحلولنا الغذائية المتكاملة أن تحقق لك
+          ميزة تنافسية حقيقية وتعزز من كفاءة مشروعك.
         </p>
 
         <div className="mb-8 flex flex-wrap items-center justify-center gap-4">
-          <Button asChild size="lg" variant="secondary" className="group bg-takarr">
+          <Button
+            asChild
+            size="lg"
+            variant="secondary"
+            className="group bg-takarr"
+          >
             <Link href="/contact">
               طلب عرض سعر
               <ArrowLeft className="mr-2 h-5 w-5 transition-transform group-hover:-translate-x-1" />
@@ -35,7 +40,7 @@ export function CTASection() {
             variant="outline"
             className="border-primary-foreground/30 bg-transparent text-primary-foreground hover:bg-primary-foreground/10"
           >
-            <a href="tel:+966535521385">
+            <a href="tel:+966556815070">
               <Phone className="ml-2 h-5 w-5" />
               اتصل بنا الآن
             </a>
@@ -44,11 +49,11 @@ export function CTASection() {
 
         <div className="flex flex-wrap items-center justify-center gap-6 text-primary-foreground/80">
           <a
-            href="tel:+966535521385"
+            href="tel:+966556815070"
             className="flex items-center gap-2 transition-colors hover:text-primary-foreground"
           >
             <Phone className="h-5 w-5" />
-            <span dir="ltr">+966 53 552 1385</span>
+            <span dir="ltr">+966 55 681 5070</span>
           </a>
           <a
             href="mailto:fahd90352@gmail.com"
@@ -60,5 +65,5 @@ export function CTASection() {
         </div>
       </div>
     </section>
-  )
+  );
 }

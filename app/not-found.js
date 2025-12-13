@@ -31,7 +31,7 @@ export default function NotFound() {
 
             {/* Actions */}
             <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
-              <Button asChild size="lg" className="min-w-[180px]">
+              <Button asChild size="lg" className="min-w-[180px] bg-takar">
                 <Link href="/">
                   <Home className="ml-2 h-5 w-5" />
                   الصفحة الرئيسية

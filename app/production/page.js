@@ -123,7 +123,7 @@ export default function ProductionPage() {
             />
           </div>
           <div className="container relative mx-auto px-4 text-center lg:px-8">
-            <h1 className="mb-4 text-4xl font-bold text-primary-foreground lg:text-5xl">
+            <h1 className="mb-4 text-4xl font-bold text-takarr lg:text-5xl">
               الإنتاج والتقنية
             </h1>
             <p className="mx-auto max-w-2xl text-lg text-primary-foreground/90">
@@ -136,10 +136,10 @@ export default function ProductionPage() {
         <section className="py-16 lg:py-24">
           <div className="container mx-auto px-4 lg:px-8">
             <div className="mb-12 text-center">
-              <span className="mb-4 inline-block text-sm font-semibold text-primary">
+              <span className="mb-4 inline-block text-sm font-semibold text-takar">
                 قدراتنا الإنتاجية
               </span>
-              <h2 className="mb-4 text-3xl font-bold lg:text-4xl">
+              <h2 className="mb-4 text-3xl font-bold lg:text-4xl text-taka">
                 طاقة إنتاجية استثنائية
               </h2>
               <p className="mx-auto max-w-2xl text-muted-foreground">
@@ -152,14 +152,14 @@ export default function ProductionPage() {
               {capabilities.map((cap, index) => (
                 <Card key={index} className="text-center">
                   <CardHeader>
-                    <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-primary/10 text-primary">
+                    <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-takarr text-takar">
                       <cap.icon className="h-7 w-7" />
                     </div>
                     <CardTitle className="text-lg">{cap.title}</CardTitle>
                   </CardHeader>
                   <CardContent>
                     <div className="mb-2">
-                      <span className="text-4xl font-bold text-primary">
+                      <span className="text-4xl font-bold text-taka">
                         {cap.value}
                       </span>
                       <span className="mr-1 text-muted-foreground">
@@ -180,10 +180,10 @@ export default function ProductionPage() {
         <section className="bg-muted/30 py-16 lg:py-24">
           <div className="container mx-auto px-4 lg:px-8">
             <div className="mb-12 text-center">
-              <span className="mb-4 inline-block text-sm font-semibold text-primary">
+              <span className="mb-4 inline-block text-sm font-semibold text-takar">
                 مراحل التصنيع
               </span>
-              <h2 className="mb-4 text-3xl font-bold lg:text-4xl">
+              <h2 className="mb-4 text-3xl font-bold lg:text-4xl text-taka">
                 عملية التصنيع الذكية
               </h2>
               <p className="mx-auto max-w-2xl text-muted-foreground">
@@ -199,7 +199,7 @@ export default function ProductionPage() {
                 {productionSteps.map((step, index) => (
                   <div
                     key={index}
-                    className={`flex items-center gap-6 lg:gap-12 ${
+                    className={`flex items-center gap-6 lg:gap-12  ${
                       index % 2 === 0 ? "lg:flex-row" : "lg:flex-row-reverse"
                     }`}
                   >
@@ -211,7 +211,7 @@ export default function ProductionPage() {
                       <Card className="relative">
                         <CardContent className="p-6">
                           <div className="mb-3 flex items-center gap-3">
-                            <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary text-primary-foreground">
+                            <div className="flex h-10 w-10 items-center justify-center rounded-full bg-takar text-primary-foreground">
                               {step.step}
                             </div>
                             <h3 className="text-xl font-semibold">
@@ -239,10 +239,10 @@ export default function ProductionPage() {
         <section className="py-16 lg:py-24">
           <div className="container mx-auto px-4 lg:px-8">
             <div className="mb-12 text-center">
-              <span className="mb-4 inline-block text-sm font-semibold text-primary">
+              <span className="mb-4 inline-block text-sm font-semibold text-takar">
                 التقنيات المستخدمة
               </span>
-              <h2 className="mb-4 text-3xl font-bold lg:text-4xl">
+              <h2 className="mb-4 text-3xl font-bold lg:text-4xl text-taka">
                 أحدث التقنيات العالمية
               </h2>
               <p className="mx-auto max-w-2xl text-muted-foreground">
@@ -258,7 +258,7 @@ export default function ProductionPage() {
                   className="group transition-all hover:shadow-lg"
                 >
                   <CardHeader>
-                    <CardTitle className="text-lg">{tech.title}</CardTitle>
+                    <CardTitle className="text-lg text-taka">{tech.title}</CardTitle>
                   </CardHeader>
                   <CardContent>
                     <p className="text-muted-foreground">{tech.description}</p>

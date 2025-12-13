@@ -9,14 +9,14 @@ const stats = [
   { value: 4, suffix: "", label: "منتجات رئيسية", description: "حلول متكاملة" },
 ]
 
-function useCountUp(end: number, duration = 2000, start = false) {
+function useCountUp(end, duration = 2000, start = false) {
   const [count, setCount] = useState(0)
 
   useEffect(() => {
     if (!start) return
 
-    let startTime: number | null = null
-    const step = (timestamp: number) => {
+    let startTime = null
+    const step = (timestamp) => {
       if (!startTime) startTime = timestamp
       const progress = Math.min((timestamp - startTime) / duration, 1)
       setCount(Math.floor(progress * end))
@@ -32,7 +32,7 @@ function useCountUp(end: number, duration = 2000, start = false) {
 
 export function StatsSection() {
   const [isVisible, setIsVisible] = useState(false)
-  const sectionRef = useRef<HTMLElement>(null)
+  const sectionRef = useRef(null)
   const counts = stats.map((stat) => useCountUp(stat.value, 2000, isVisible))
 
   useEffect(() => {

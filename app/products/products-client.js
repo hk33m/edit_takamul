@@ -133,7 +133,7 @@ useEffect(() => {
             />
           </div>
           <div className="container relative mx-auto px-4 text-center lg:px-8">
-            <h1 className="mb-4 text-4xl font-bold text-primary-foreground lg:text-5xl">
+            <h1 className="mb-4 text-4xl font-bold text-takar lg:text-5xl">
               منتجاتنا
             </h1>
             <p className="mx-auto max-w-2xl text-lg text-primary-foreground/90">
@@ -192,7 +192,7 @@ useEffect(() => {
                           {product.titleEn}
                         </span>
                       </div>
-                      <h2 className="mb-4 text-3xl font-bold">
+                      <h2 className="mb-4 text-3xl font-bold text-taka">
                         {product.title}
                       </h2>
                       <p className="mb-6 text-muted-foreground leading-relaxed">
@@ -201,16 +201,16 @@ useEffect(() => {
 
                       {/* Benefits */}
                       <div className="mb-6">
-                        <h3 className="mb-3 font-semibold">
+                        <h3 className="mb-3 font-semibold text-takar ">
                           المميزات والفوائد:
                         </h3>
                         <ul className="space-y-2">
                           {product.benefits.map((benefit, index) => (
                             <li
                               key={index}
-                              className="flex items-center gap-2 text-muted-foreground"
+                              className="flex items-center gap-2 "
                             >
-                              <Check className="h-5 w-5 shrink-0 text-primary" />
+                              <Check className="h-5 w-5 shrink-0 text-takar" />
                               <span>{benefit}</span>
                             </li>
                           ))}
@@ -225,7 +225,7 @@ useEffect(() => {
                         <p className="text-muted-foreground">{product.usage}</p>
                       </div>
 
-                      <Button asChild size="lg" className="group">
+                      <Button asChild size="lg" className="group bg-taka">
                         <Link href="/contact">
                           طلب عرض سعر
                           <ArrowLeft className="mr-2 h-5 w-5 transition-transform group-hover:-translate-x-1" />
@@ -243,7 +243,7 @@ useEffect(() => {
         <section className="bg-muted/30 py-16 lg:py-24">
           <div className="container mx-auto px-4 lg:px-8">
             <div className="mb-12 text-center">
-              <h2 className="mb-4 text-3xl font-bold">جميع المنتجات</h2>
+              <h2 className="mb-4 text-3xl font-bold text-taka">جميع المنتجات</h2>
               <p className="mx-auto max-w-2xl text-muted-foreground">
                 جميع منتجاتنا مصنوعة وفق أحدث التقنيات وأعلى المعايير العالمية
               </p>
@@ -270,8 +270,8 @@ useEffect(() => {
                     </Badge>
                   </div>
                   <CardHeader>
-                    <CardTitle className="text-xl">{product.title}</CardTitle>
-                    <CardDescription className="text-xs">
+                    <CardTitle className="text-xl text-taka">{product.title}</CardTitle>
+                    <CardDescription className="text-xs text-takar">
                       {product.titleEn}
                     </CardDescription>
                   </CardHeader>
@@ -289,12 +289,12 @@ useEffect(() => {
         {/* CTA Section */}
         <section className="py-16 lg:py-24">
           <div className="container mx-auto px-4 text-center lg:px-8">
-            <h2 className="mb-4 text-3xl font-bold">هل تحتاج إلى استشارة؟</h2>
+            <h2 className="mb-4 text-3xl font-bold text-takar">هل تحتاج إلى استشارة؟</h2>
             <p className="mx-auto mb-8 max-w-2xl text-muted-foreground">
               فريقنا المتخصص جاهز لمساعدتك في اختيار المنتج الأنسب لاحتياجاتك
               وتقديم الدعم الفني اللازم
             </p>
-            <Button asChild size="lg">
+            <Button asChild size="lg" className={"bg-taka"}>
               <Link href="/contact">
                 تواصل مع فريق المبيعات
                 <ArrowLeft className="mr-2 h-5 w-5" />

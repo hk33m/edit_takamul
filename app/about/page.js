@@ -61,7 +61,7 @@ export default function AboutPage() {
             />
           </div>
           <div className="container relative mx-auto px-4 text-center lg:px-8">
-            <h1 className="mb-4 text-4xl font-bold text-primary-foreground lg:text-5xl">
+            <h1 className="mb-4 text-4xl font-bold text-takarr lg:text-5xl">
               من نحن
             </h1>
             <p className="mx-auto max-w-2xl text-lg text-primary-foreground/90">
@@ -76,10 +76,10 @@ export default function AboutPage() {
           <div className="container mx-auto px-4 lg:px-8">
             <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
               <div>
-                <span className="mb-4 inline-block text-sm font-semibold text-primary">
+                <span className="mb-4 inline-block text-sm font-semibold text-takar">
                   نبذة عن المصنع
                 </span>
-                <h2 className="mb-6 text-3xl font-bold leading-tight lg:text-4xl text-balance">
+                <h2 className="mb-6 text-3xl font-bold leading-tight lg:text-4xl text-balance text-taka">
                   أحد أعمدة صناعة الأعلاف في المملكة العربية السعودية
                 </h2>
                 <div className="space-y-4 text-muted-foreground leading-relaxed">
@@ -124,15 +124,13 @@ export default function AboutPage() {
           <div className="container mx-auto px-4 lg:px-8">
             <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
               <div className="relative order-2 lg:order-1">
-                <div className="flex h-64 items-center justify-center rounded-2xl bg-primary/10">
-                  <Eye className="h-32 w-32 text-primary/40" />
-                </div>
+                
               </div>
               <div className="order-1 lg:order-2">
-                <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-lg bg-primary text-primary-foreground">
+                <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-lg bg-taka text-primary-foreground">
                   <Eye className="h-6 w-6" />
                 </div>
-                <h2 className="mb-6 text-3xl font-bold lg:text-4xl">رؤيتنا</h2>
+                <h2 className="mb-6 text-3xl font-bold lg:text-4xl text-taka">رؤيتنا</h2>
                 <div className="space-y-4 text-muted-foreground leading-relaxed">
                   <p>
                     نسعى في مصنع التكامل للأعلاف إلى ترسيخ مكانتنا كخيار أول
@@ -158,10 +156,10 @@ export default function AboutPage() {
           <div className="container mx-auto px-4 lg:px-8">
             <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
               <div>
-                <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-lg bg-primary text-primary-foreground">
+                <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-lg bg-takar text-primary-foreground">
                   <Target className="h-6 w-6" />
                 </div>
-                <h2 className="mb-6 text-3xl font-bold lg:text-4xl">رسالتنا</h2>
+                <h2 className="mb-6 text-3xl font-bold lg:text-4xl text-takar">رسالتنا</h2>
                 <div className="space-y-4 text-muted-foreground leading-relaxed">
                   <p>
                     في مصنع التكامل للأعلاف، نلتزم بتوفير أعلاف عالية الجودة
@@ -181,9 +179,7 @@ export default function AboutPage() {
                 </div>
               </div>
               <div className="relative">
-                <div className="flex h-64 items-center justify-center rounded-2xl bg-secondary/30">
-                  <Target className="h-32 w-32 text-secondary/60" />
-                </div>
+               
               </div>
             </div>
           </div>
@@ -193,10 +189,10 @@ export default function AboutPage() {
         <section className="bg-muted/30 py-16 lg:py-24">
           <div className="container mx-auto px-4 lg:px-8">
             <div className="mb-12 text-center">
-              <span className="mb-4 inline-block text-sm font-semibold text-primary">
+              <span className="mb-4 inline-block text-sm font-semibold text-takar">
                 قيمنا
               </span>
-              <h2 className="mb-4 text-3xl font-bold lg:text-4xl">
+              <h2 className="mb-4 text-3xl font-bold lg:text-4xl text-taka">
                 القيم التي نؤمن بها
               </h2>
               <p className="mx-auto max-w-2xl text-muted-foreground">

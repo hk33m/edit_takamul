@@ -101,7 +101,7 @@ export default function SustainabilityPage() {
             />
           </div>
           <div className="container relative mx-auto px-4 text-center lg:px-8">
-            <h1 className="mb-4 text-4xl font-bold text-primary-foreground lg:text-5xl">
+            <h1 className="mb-4 text-4xl font-bold text-takarr lg:text-5xl">
               الاستدامة
             </h1>
             <p className="mx-auto max-w-2xl text-lg text-primary-foreground/90">
@@ -114,8 +114,8 @@ export default function SustainabilityPage() {
         <section className="py-16 lg:py-24">
           <div className="container mx-auto px-4 lg:px-8">
             <div className="mx-auto max-w-4xl text-center">
-              <Leaf className="mx-auto mb-6 h-16 w-16 text-primary" />
-              <h2 className="mb-6 text-3xl font-bold lg:text-4xl text-balance">
+              <Leaf className="mx-auto mb-6 h-16 w-16 text-takar" />
+              <h2 className="mb-6 text-3xl font-bold lg:text-4xl text-balance text-taka">
                 رؤيتنا للاستدامة
               </h2>
               <p className="text-lg text-muted-foreground leading-relaxed">
@@ -132,10 +132,10 @@ export default function SustainabilityPage() {
         <section className="bg-muted/30 py-16 lg:py-24">
           <div className="container mx-auto px-4 lg:px-8">
             <div className="mb-12 text-center">
-              <span className="mb-4 inline-block text-sm font-semibold text-primary">
+              <span className="mb-4 inline-block text-sm font-semibold text-takar">
                 ركائز الاستدامة
               </span>
-              <h2 className="mb-4 text-3xl font-bold lg:text-4xl">
+              <h2 className="mb-4 text-3xl font-bold lg:text-4xl text-taka">
                 التزاماتنا البيئية
               </h2>
             </div>
@@ -147,7 +147,7 @@ export default function SustainabilityPage() {
                   className="group text-center transition-all hover:shadow-lg"
                 >
                   <CardHeader>
-                    <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-primary/10 text-primary transition-colors group-hover:bg-primary group-hover:text-primary-foreground">
+                    <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-primary/10 text-primary transition-colors group-hover:bg-takar group-hover:text-primary-foreground">
                       <pillar.icon className="h-7 w-7" />
                     </div>
                     <CardTitle className="text-lg">{pillar.title}</CardTitle>
@@ -167,10 +167,10 @@ export default function SustainabilityPage() {
         <section className="py-16 lg:py-24">
           <div className="container mx-auto px-4 lg:px-8">
             <div className="mb-12 text-center">
-              <span className="mb-4 inline-block text-sm font-semibold text-primary">
+              <span className="mb-4 inline-block text-sm font-semibold text-takar">
                 مبادراتنا
               </span>
-              <h2 className="mb-4 text-3xl font-bold lg:text-4xl">
+              <h2 className="mb-4 text-3xl font-bold lg:text-4xl text-taka">
                 التقدم نحو أهدافنا
               </h2>
               <p className="mx-auto max-w-2xl text-muted-foreground">
@@ -183,7 +183,7 @@ export default function SustainabilityPage() {
                 <Card key={index}>
                   <CardContent className="p-6">
                     <div className="mb-2 flex items-center justify-between">
-                      <h3 className="font-semibold">{initiative.title}</h3>
+                      <h3 className="font-semibold text-taka">{initiative.title}</h3>
                       <span className="text-sm font-medium text-primary">
                         {initiative.progress}%
                       </span>
@@ -193,7 +193,7 @@ export default function SustainabilityPage() {
                     </p>
                     <div className="h-2 overflow-hidden rounded-full bg-muted">
                       <div
-                        className="h-full rounded-full bg-primary transition-all"
+                        className="h-full rounded-full bg-takar transition-all"
                         style={{ width: `${initiative.progress}%` }}
                       />
                     </div>
@@ -208,10 +208,10 @@ export default function SustainabilityPage() {
         <section className="bg-muted/30 py-16 lg:py-24">
           <div className="container mx-auto px-4 lg:px-8">
             <div className="mb-12 text-center">
-              <span className="mb-4 inline-block text-sm font-semibold text-primary">
+              <span className="mb-4 inline-block text-sm font-semibold text-taka">
                 المسؤولية الاجتماعية
               </span>
-              <h2 className="mb-4 text-3xl font-bold lg:text-4xl">
+              <h2 className="mb-4 text-3xl font-bold lg:text-4xl text-taka">
                 التزامنا تجاه المجتمع
               </h2>
               <p className="mx-auto max-w-2xl text-muted-foreground">
@@ -226,7 +226,7 @@ export default function SustainabilityPage() {
                   className="group transition-all hover:shadow-lg"
                 >
                   <CardContent className="p-6 text-center">
-                    <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10 text-primary">
+                    <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10 text-taka">
                       <item.icon className="h-6 w-6" />
                     </div>
                     <h3 className="mb-2 font-semibold">{item.title}</h3>
@@ -245,10 +245,10 @@ export default function SustainabilityPage() {
           <div className="container mx-auto px-4 lg:px-8">
             <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
               <div>
-                <span className="mb-4 inline-block text-sm font-semibold text-primary">
+                <span className="mb-4 inline-block text-sm font-semibold text-takar">
                   حلول مستدامة
                 </span>
-                <h2 className="mb-6 text-3xl font-bold lg:text-4xl text-balance">
+                <h2 className="mb-6 text-3xl font-bold lg:text-4xl text-balance text-taka">
                   أعلاف صديقة للبيئة
                 </h2>
                 <div className="space-y-4 text-muted-foreground leading-relaxed">

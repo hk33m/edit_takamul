@@ -1,5 +1,5 @@
-import Link from "next/link"
-import { Phone, Mail, MapPin } from "lucide-react"
+import Link from "next/link";
+import { Phone, Mail, MapPin } from "lucide-react";
 
 const footerLinks = {
   company: [
@@ -14,10 +14,8 @@ const footerLinks = {
     { name: "أعلاف اللاحم", href: "/products?tab=broiler" },
     { name: "أعلاف الماشية", href: "/products?tab=cattle" },
   ],
-  support: [
-    { name: "تواصل معنا", href: "/contact" },
-  ],
-}
+  support: [{ name: "تواصل معنا", href: "/contact" }],
+};
 
 export default function Footer() {
   return (
@@ -28,15 +26,20 @@ export default function Footer() {
           <div className="space-y-4">
             <div className="flex items-center gap-3">
               <div className="flex h-10 w-10 items-center justify-center rounded-lg border">
-                <span className="text-lg font-bold "><img src="/512-01.png"></img></span>
+                <span className="text-lg font-bold ">
+                  <img src="/512-01.png"></img>
+                </span>
               </div>
               <div>
                 <p className="font-bold text-taka">مصنع التكامل للأعلاف</p>
-                <p className="text-xs text-muted-foreground">Al-Takamol Factory</p>
+                <p className="text-xs text-muted-foreground">
+                  Al-Takamol Factory
+                </p>
               </div>
             </div>
             <p className="text-sm text-muted-foreground leading-relaxed">
-              شريكك الموثوق في صناعة أعلاف الدواجن والماشية بأعلى معايير الجودة العالمية.
+              شريكك الموثوق في صناعة أعلاف الدواجن والماشية بأعلى معايير الجودة
+              العالمية.
             </p>
             <div className="space-y-2 text-sm text-muted-foreground">
               <div className="flex items-center gap-2">
@@ -45,7 +48,7 @@ export default function Footer() {
               </div>
               <div className="flex items-center gap-2">
                 <Phone className="h-4 w-4 text-primary" />
-                <span dir="ltr">+966 53 552 1385</span>
+                <span dir="ltr">+966 55 681 5070</span>
               </div>
               <div className="flex items-center gap-2">
                 <Mail className="h-4 w-4 text-primary" />
@@ -108,11 +111,14 @@ export default function Footer() {
 
         <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t pt-8 md:flex-row">
           <p className="text-sm text-muted-foreground">
-            © {new Date().getFullYear()} مصنع التكامل للأعلاف. جميع الحقوق محفوظة.
+            © {new Date().getFullYear()} مصنع التكامل للأعلاف. جميع الحقوق
+            محفوظة.
           </p>
-          <p className="text-sm text-muted-foreground">الرمز البريدي: 62678 - ص.ب: 7651</p>
+          <p className="text-sm text-muted-foreground">
+            الرمز البريدي: 62678 - ص.ب: 7651
+          </p>
         </div>
       </div>
     </footer>
-  )
+  );
 }
