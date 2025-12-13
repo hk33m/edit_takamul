@@ -1,6 +1,7 @@
 
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
+import { Analytics } from "@vercel/analytics/next"
 
 export const metadata = {
   title: "مصنع التكامل للأعلاف | Al-Takamol Factory for Fodder",
