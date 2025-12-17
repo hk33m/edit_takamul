@@ -1,7 +1,4 @@
 const partners = [
-  { name: "شركة  التنمية", logo: "/tn.jpeg" },
-  { name: "شركة بلدي ", logo: "/balade.png" },
-  { name: "شركة مزارعنا  ", logo: "/mazarena.png" },
   { name: "الصندوق الصناعي  ", logo: "/saudibox.png" },
   { name: "وزارة البيئة والزراعة  ", logo: "/env.png" },
   { name: "وزارة التجارة  ", logo: "/commercepng.png" },

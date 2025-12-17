@@ -96,7 +96,7 @@ export default function ClientsPage() {
         </section>
 
         {/* Clients Grid */}
-        <section className="py-16 lg:py-24">
+        {/* <section className="py-16 lg:py-24">
           <div className="container mx-auto px-4 lg:px-8">
             <div className="mb-12 text-center">
               <span className="mb-4 inline-block text-sm font-semibold text-takar">
@@ -137,7 +137,7 @@ export default function ClientsPage() {
               ))}
             </div>
           </div>
-        </section>
+        </section> */}
 
         {/* Testimonials */}
         {/* <section className="bg-muted/30 py-16 lg:py-24">

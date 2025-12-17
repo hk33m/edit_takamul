@@ -28,7 +28,7 @@ const navigation = [
   { name: "منتجاتنا", href: "/products" },
   { name: "الإنتاج والتقنية", href: "/production" },
   { name: "الجودة", href: "/quality" },
-  { name: "عملاؤنا", href: "/clients" },
+  { name: "شركائنا", href: "/clients" },
   { name: "الاستدامة", href: "/sustainability" },
   { name: "تواصل معنا", href: "/contact" },
 ];

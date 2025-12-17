@@ -152,7 +152,7 @@ useEffect(() => {
               className="w-full"
               dir="rtl"
             >
-              <TabsList className="mb-8 h-12 dark:bg-cardark grid w-full grid-cols-2 lg:grid-cols-4">
+              <TabsList className="mb-8 h-16 md:h-12 dark:bg-cardark grid w-full grid-cols-2 lg:grid-cols-4">
                 {products.map((product) => (
                   <TabsTrigger
                     key={product.id}
