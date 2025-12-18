@@ -10,9 +10,9 @@ export function PartnersSection() {
     <section className="bg-muted/30 py-16 lg:py-20">
       <div className="container mx-auto px-4 lg:px-8">
         <div className="mb-10 text-center">
-          <span className="mb-4 inline-block text-sm font-semibold text-takar">شركاء النجاح</span>
-          <h2 className="mb-4 text-2xl font-bold lg:text-3xl text-taka">عملاؤنا وشركاؤنا الاستراتيجيون</h2>
-          <p className="mx-auto max-w-xl text-muted-foreground">نفخر بشراكاتنا مع كبرى المزارع والشركات في المملكة</p>
+          {/* <span className="mb-4 inline-block text-sm font-semibold text-takar">شركاء النجاح</span> */}
+          <h2 className="mb-4 text-2xl font-bold lg:text-3xl text-taka"> شركاء النجاح </h2>
+          {/* <p className="mx-auto max-w-xl text-muted-foreground">نفخر بشراكاتنا مع كبرى المزارع والشركات في المملكة</p> */}
         </div>
 
         <div className="grid grid-cols-2 items-center  gap-8 md:grid-cols-3 lg:grid-cols-6">

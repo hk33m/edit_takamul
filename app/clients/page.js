@@ -87,7 +87,7 @@ export default function ClientsPage() {
           </div>
           <div className="container relative mx-auto px-4 text-center lg:px-8">
             <h1 className="mb-4 text-4xl font-bold text-takarr lg:text-5xl">
-              عملاؤنا وشركاؤنا
+               شركاؤنا
             </h1>
             <p className="mx-auto max-w-2xl text-lg text-primary-foreground/90">
               نفخر بشراكاتنا الاستراتيجية مع كبرى المزارع والشركات في المملكة
