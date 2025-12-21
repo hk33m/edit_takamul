@@ -12,8 +12,10 @@ import  Navbar  from "@/components/home/navbar";
 import  Footer  from "@/components/home/footer";
 import Skeleton from "react-loading-skeleton";
 import 'react-loading-skeleton/dist/skeleton.css';
+import {useAuthProtection} from "@/lib/auth";
 
 export default function EditProduct() {
+  useAuthProtection();
   const router = useRouter();
   const { slug } = useParams();
   const [loading, setLoading] = useState(true);

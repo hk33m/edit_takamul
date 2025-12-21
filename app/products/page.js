@@ -12,11 +12,12 @@ import Link from "next/link"
 import Skeleton from "react-loading-skeleton";
 import 'react-loading-skeleton/dist/skeleton.css';
 import { toast } from "sonner"
+import {useAuthProtection} from "@/lib/auth";
 
 
 
 export default function ProductsPage() {
-
+useAuthProtection();
    const [products, setProducts] = useState([])
    const[loading,setLoading]=useState(true);
 
