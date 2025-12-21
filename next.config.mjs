@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  /* config options here */
   reactCompiler: true,
-  output: "export", // <-- هذا يفعّل تصدير الملفات كـ static
 };
 
 export default nextConfig;
