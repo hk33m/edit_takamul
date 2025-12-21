@@ -1,8 +1,9 @@
 import Image from "next/image";
 import Navbar from "@/components/home/navbar";
 import Footer from "@/components/home/footer";
-import { CirclePlus } from "lucide-react";
+import { CirclePlus,List } from "lucide-react";
 import Link from "next/link";
+import { Toaster } from "@/components/ui/sonner"
 
 export default function Home() {
   return (
@@ -17,7 +18,7 @@ export default function Home() {
         </Link>
         <Link href={"/products"}>
          <div className="flex items-center gap-4 bg-gradient-to-bl from-green-500 via-green-50 to-white px-8 rounded-xl py-2">
-        <div className="bg-green-900  text-white rounded-full p-2 "><CirclePlus className="h-4  w-4" /></div>
+        <div className="bg-green-900  text-white rounded-full p-2 "><List className="h-4  w-4" /></div>
         <h1 className="text-xl">عرض المنتجات </h1>
         </div>
         </Link>

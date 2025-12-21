@@ -1,451 +1,220 @@
-"use client"
+"use client";
 
-import { use, useState,useEffect } from "react"
-import  Navbar  from "@/components/home/navbar"
-import  Footer  from "@/components/home/footer"
-import { FloatingContact } from "@/components/floating-contact"
-import { Badge } from "@/components/ui/badge"
-import { Button } from "@/components/ui/button"
-import { Card } from "@/components/ui/card"
-import { Check, ArrowLeft, Heart, Share2, Facebook, Twitter, LinkIcon, ChevronLeft, ChevronRight } from "lucide-react"
-import Link from "next/link"
-import { notFound } from "next/navigation"
+import { useState, useEffect } from "react";
+import { useParams, useRouter } from "next/navigation";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { ImagePlus } from "lucide-react";
+import { toast } from "sonner"
+import  Navbar  from "@/components/home/navbar";
+import  Footer  from "@/components/home/footer";
 import Skeleton from "react-loading-skeleton";
 import 'react-loading-skeleton/dist/skeleton.css';
 
+export default function EditProduct() {
+  const router = useRouter();
+  const { slug } = useParams();
+  const [loading, setLoading] = useState(true);
 
-// const productsData = [
-//   {
-//     id: "breeder",
-//     title: "أعلاف الأمهات",
-//     titleEn: "Breeder Feed",
-//     description: "مصممة لدعم الخصوبة وتحسين صحة القطيع، بما يضمن إنتاج كتاكيت قوية وعالية الجودة.",
-//     fullDescription:
-//       "أعلاف الأمهات من مصنع التكامل مصممة خصيصاً لتلبية الاحتياجات الغذائية الفريدة لقطعان التربية. توفر تركيبتنا المتوازنة جميع العناصر الغذائية الضرورية لدعم الخصوبة العالية وإنتاج بيض فقس ممتاز.",
-//     images: [
-//       "/breeder-chicken-feed-pellets.jpg",
-//       "/breeder-feed-in-factory-production-line.jpg",
-//       "/chicken-breeder-farm-with-quality-feed.jpg",
-//       "/breeder-feed-pellets-close-up.jpg",
-//     ],
-//     badge: "عالي الجودة",
-//     benefits: [
-//       "تحسين معدلات الخصوبة والفقس",
-//       "دعم صحة الأمهات خلال فترة الإنتاج",
-//       "تعزيز جودة البيض وقوة الكتاكيت",
-//       "توازن مثالي للفيتامينات والمعادن",
-//       "تركيبة علمية مدروسة",
-//     ],
-//     usage: "قطعان التربية والأمهات في جميع مراحل الإنتاج",
-//   },
-//   {
-//     id: "layer",
-//     title: "أعلاف البياض",
-//     titleEn: "Layer Feed",
-//     description: "تدعم زيادة إنتاج البيض وتحافظ على جودته وقيمته الغذائية العالية.",
-//     fullDescription:
-//       "أعلاف البياض مصممة لتحقيق أقصى إنتاجية من البيض مع الحفاظ على جودة القشرة والمحتوى الغذائي. تركيبتنا توفر الكالسيوم والفوسفور بنسب مثالية لضمان قشرة قوية وبيض عالي الجودة.",
-//     images: [
-//       "/layer-chicken-feed-with-eggs.jpg",
-//       "/layer-chicken-feed-production-facility.jpg",
-//       "/egg-production-farm-with-layer-feed.jpg",
-//       "/layer-feed-pellets-manufacturing.jpg",
-//     ],
-//     badge: "الأكثر مبيعاً",
-//     benefits: [
-//       "زيادة معدل إنتاج البيض",
-//       "تحسين جودة القشرة وسمكها",
-//       "رفع القيمة الغذائية للبيض",
-//       "دعم صحة الدجاج البياض",
-//       "كفاءة عالية في التحويل الغذائي",
-//     ],
-//     usage: "الدجاج البياض في مرحلة الإنتاج الكامل",
-//   },
-//   {
-//     id: "broiler",
-//     title: "أعلاف اللاحم",
-//     titleEn: "Broiler Feed",
-//     description: "تركيبات غنية ومتوازنة تساهم في تحقيق نمو سريع ووزن مثالي خلال فترة التسمين.",
-//     fullDescription:
-//       "أعلاف اللاحم من مصنع التكامل مصممة لتحقيق أسرع معدلات نمو مع الحفاظ على صحة الطيور. نوفر تركيبات متخصصة لكل مرحلة من مراحل التربية: البادئ، النامي، والناهي.",
-//     images: [
-//       "/broiler-chicken-feed-grains.jpg",
-//       "/broiler-feed-pellets-high-quality.jpg",
-//       "/placeholder.svg?height=600&width=800",
-//       "/placeholder.svg?height=600&width=800",
-//     ],
-//     badge: "نمو سريع",
-//     benefits: [
-//       "معدلات نمو متسارعة",
-//       "تحويل غذائي ممتاز",
-//       "تحسين جودة اللحم",
-//       "تقليل فترة التربية",
-//       "صحة مثالية للطيور",
-//     ],
-//     usage: "دجاج اللاحم في جميع مراحل التربية (بادئ - نامي - ناهي)",
-//   },
-//   {
-//     id: "cattle",
-//     title: "أعلاف الماشية",
-//     titleEn: "Cattle Feed",
-//     description: "توفر تغذية متوازنة تضمن صحة أفضل وإنتاجية مستدامة في اللحوم أو الألبان.",
-//     fullDescription:
-//       "أعلاف الماشية من مصنع التكامل مصممة لتلبية الاحتياجات الغذائية المتنوعة للأبقار والأغنام والماعز. سواء كانت للحليب أو اللحم، توفر تركيباتنا التوازن المثالي للطاقة والبروتين.",
-//     images: [
-//       "/cattle-livestock-feed-pellets.jpg",
-//       "/placeholder.svg?height=600&width=800",
-//       "/placeholder.svg?height=600&width=800",
-//       "/placeholder.svg?height=600&width=800",
-//     ],
-//     badge: "تغذية متكاملة",
-//     benefits: [
-//       "زيادة إنتاج الحليب",
-//       "تحسين معدلات النمو",
-//       "دعم صحة الجهاز الهضمي",
-//       "تعزيز المناعة الطبيعية",
-//       "جودة عالية للحم",
-//     ],
-//     usage: "الأبقار والأغنام والماعز للحليب واللحم",
-//   },
-// ]
+  const [form, setForm] = useState({
+    title: "",
+    titleEn: "",
+    description: "",
+    fullDescription: "",
+    badge: "",
+    usage: "",
+    benefits: "",
+    images: [],       // صور موجودة في السيرفر
+    newImages: []     // صور جديدة يتم رفعها
+  });
 
-export default function ProductDetailPage({ params }) {
-  const { slug } = use(params)
-  //const product = productsData.find((p) => p.id === slug)
-  const [isLiked, setIsLiked] = useState(false)
-  const [showShareMenu, setShowShareMenu] = useState(false)
-  const [currentImageIndex, setCurrentImageIndex] = useState(0)
-  const[loading,setLoading]=useState(true);
-
-  // if (!product) {
-  //   notFound()
-  // }
-
-  const [product, setProduct] = useState([])
-
-useEffect(() => {
-    const fetchProducts = async () => {
+  useEffect(() => {
+    async function fetchProduct() {
       try {
-        const res = await fetch(
-          `https://cornflowerblue-albatross-308247.hostingersite.com/api/get_products.php?id=2`
-        );
-        if (!res.ok) throw new Error("فشل تحميل البيانات"); // تحقق من حالة HTTP
+        const res = await fetch(`https://cornflowerblue-albatross-308247.hostingersite.com/api/get_products.php?id=${slug}`);
         const data = await res.json();
-        if (data) setProduct(data);
+        if (data) {
+          setForm(prev => ({
+            ...prev,
+            title: data.title,
+            titleEn: data.titleEn,
+            description: data.description,
+            fullDescription: data.fullDescription,
+            badge: data.badge,
+            usage: data.usage,
+            benefits: data.benefits.join("\n"),
+            images: data.images
+          }));
+        } else {
+          alert("المنتج غير موجود");
+        }
       } catch (err) {
-        console.error("حدث خطأ أثناء جلب المنتجات:", err);
-        setError(true); // يمكن استخدامه لإظهار رسالة خطأ
+        console.error(err);
+        alert("حدث خطأ أثناء جلب المنتج");
       } finally {
-        setLoading(false); // سيغلق الـloading مهما حصل
+        setLoading(false);
       }
-    };
-
-    fetchProducts();
-  }, []);
-
-
-  const handleShare = (platform) => {
-    const url = typeof window !== "undefined" ? window.location.href : ""
-    const text = `${product.title} - مصنع التكامل للأعلاف`
-
-    switch (platform) {
-      case "facebook":
-        window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`, "_blank")
-        break
-      case "twitter":
-        window.open(
-          `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(url)}`,
-          "_blank",
-        )
-        break
-      case "copy":
-        navigator.clipboard.writeText(url)
-        alert("تم نسخ الرابط!")
-        break
     }
-    setShowShareMenu(false)
-  }
+    fetchProduct();
+  }, [slug]);
 
-  const nextImage = () => {
-    setCurrentImageIndex((prev) => (prev + 1) % product.images.length)
-  }
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setForm(prev => ({ ...prev, [name]: value }));
+  };
 
-  const prevImage = () => {
-    setCurrentImageIndex((prev) => (prev - 1 + product.images.length) % product.images.length)
-  }
+  // حذف صورة موجودة
+  const handleRemoveImage = (img) => {
+    setForm(prev => ({
+      ...prev,
+      images: prev.images.filter(i => i !== img)
+    }));
+  };
 
-  if (loading) {
-  return <div className="dark:bg-[#64312C]">
-    <Navbar title={"تعديل بيانات منتج"} color={"bg-green-900"} path={"/products"}  />
-    <div className=" py-20 p-4  w-full animate-pulse bg-white shadow-sm">
-      {/* صورة المنتج */}
-      <div className="bg-gray-300 h-48 w-full rounded-md mb-4"></div>
+  // إضافة صور جديدة
+  const handleNewImages = (e) => {
+    const files = Array.from(e.target.files);
+    setForm(prev => ({
+      ...prev,
+      newImages: prev.newImages.concat(files)
+    }));
+  };
 
-      {/* اسم المنتج */}
-      <div className="h-6 bg-gray-300 rounded w-3/4 mb-2"></div>
+  const handleSubmit = async (e) => {
+    e.preventDefault();
 
-      {/* وصف مختصر */}
-      <div className="h-4 bg-gray-300 rounded w-full mb-1"></div>
-      <div className="h-4 bg-gray-300 rounded w-5/6 mb-4"></div>
+    const formData = new FormData();
+    formData.append("id", slug);
+    formData.append("title", form.title);
+    formData.append("titleEn", form.titleEn);
+    formData.append("description", form.description);
+    formData.append("fullDescription", form.fullDescription);
+    formData.append("badge", form.badge);
+    formData.append("usage", form.usage);
+    formData.append("benefits", form.benefits);
 
-      {/* السعر */}
-      <div className="h-6 bg-gray-300 rounded w-1/3 mb-4"></div>
+    // صور موجودة بعد الحذف
+    form.images.forEach(img => formData.append("existingImages[]", img));
 
-      {/* زر الإضافة للسلة */}
-      <div className="h-10 bg-gray-300 rounded w-full"></div>
-    </div>
-   <Footer />
-    </div>
-}
+    // صور جديدة
+    form.newImages.forEach(file => formData.append("newImages[]", file));
 
-if(!product || product == null || product.length===0){
-  return <div className="dark:bg-[#64312C]">
-           <Navbar title={"تعديل بيانات منتج"} color={"bg-green-900"} path={"/products"}  />
-       <div className="flex flex-col items-center justify-center py-40  p-4 text-center ">
-      <h1 className="text-5xl font-extrabold text-taka mb-4">😞 المنتج غير موجود</h1>
-      <p className="text-lg text-primary mb-6">
-        عذرًا، لم نتمكن من العثور على المنتج الذي تبحث عنه. ربما تم حذفه او خطأ في الاتصال بالانترنت أو الرابط غير صحيح.
-      </p>
-      <Link href="/">
-        <Button className="bg-takar hover:bg-blue-700  px-6 py-3">
-          العودة للرئيسية
-        </Button>
-      </Link>
-      
-  <Button onClick={() => window.location.reload()} className="font-medium rounded-lg px-6 py-3 m-4 transition-colors duration-200">
-    تحديث الصفحة
-  </Button>   
-    </div>
-       <Footer />
+    try {
+      const res = await fetch(`https://cornflowerblue-albatross-308247.hostingersite.com/api/update_product.php`, {
+        method: "POST",
+        body: formData
+      });
+
+      const data = await res.json();
+      if (data.status === "success") {
+        toast.success("  تم تعديل المنتج بنجاح");
+        router.push("/products");
+      } else {
+        toast.error("  فشل تعديل المنتج  ");
+      }
+    } catch (err) {
+      console.error(err);
+      toast.error("  حدث خطأ أثناء تعديل المنتج ");
+    }
+  };
+
+   if (loading) {
+    return <div className="dark:bg-[#64312C]">
+      <Navbar title={"المنتجات"} color={"bg-green-900"} path={"/products"}  />
+        <div className="flex flex-col space-y-3 p-4">
+        <Skeleton className="h-[125px] w-[250px] rounded-xl" />
+        <div className="space-y-2">
+          <Skeleton className="h-4 w-[250px]" />
+          <Skeleton className="h-4 w-[200px]" />
+        </div>
       </div>
-}
+     <Footer />
+      </div>
+  }
 
   return (
-    <div className="flex min-h-screen flex-col dark:bg-[#64312C]">
-          <Navbar title={"تعديل بيانات منتج"} color={"bg-green-900"} path={"/products"}  />
-      <main className="flex-1">
-        {/* Hero Section */}
-        <section className="relative bg-taka py-12 lg:py-16">
-          <div className="container mx-auto px-4 lg:px-8">
-            <Link
-              href="/products"
-              className="mb-4 inline-flex items-center gap-2 text-primary-foreground hover:underline"
-            >
-              <ArrowLeft className="h-4 w-4 rotate-180" />
-              العودة إلى المنتجات
-            </Link>
-            <div className="flex items-center gap-3">
-              <h1 className="text-3xl font-bold text-primary-foreground lg:text-4xl">{product.title}</h1>
-              <Badge className="bg-secondary text-secondary-foreground">{product.badge}</Badge>
-            </div>
-            <p className="mt-2 text-primary-foreground/80">{product.titleEn}</p>
-          </div>
-        </section>
+    <div>
+      <Navbar title={"المنتجات"} color={"bg-green-900"} path={"/products"}  />
+    <Card className="max-w-3xl mx-auto mt-8">
+      <CardHeader>
+        <CardTitle>تعديل المنتج</CardTitle>
+      </CardHeader>
+      <CardContent>
+        <form onSubmit={handleSubmit} className="space-y-4">
+          <Input name="title" value={form.title} onChange={handleChange} placeholder="العنوان" required />
+          <Input name="titleEn" value={form.titleEn} onChange={handleChange} placeholder="العنوان بالإنجليزية" required />
+          <Textarea name="description" value={form.description} onChange={handleChange} placeholder="الوصف" />
+          <Textarea name="fullDescription" value={form.fullDescription} onChange={handleChange} placeholder="الوصف الكامل" />
+          <Input name="badge" value={form.badge} onChange={handleChange} placeholder="شارة المنتج" />
+          <Input name="usage" value={form.usage} onChange={handleChange} placeholder="طريقة الاستخدام" />
+          <Textarea name="benefits" value={form.benefits} onChange={handleChange} placeholder="الفوائد، كل سطر منفصل" />
 
-        {/* Product Details */}
-        <section className="py-16 lg:py-24">
-          <div className="container mx-auto px-4 lg:px-8">
-            <div className="grid gap-8 lg:grid-cols-2 lg:gap-12">
-              {/* Product Image Gallery */}
-              <div>
-                <div className="relative aspect-[4/3] overflow-hidden rounded-2xl">
-                  <img
-                    src={`https://cornflowerblue-albatross-308247.hostingersite.com/${product.images[currentImageIndex]}` || "/placeholder.svg"}
-                    alt={`${product.title} - صورة ${currentImageIndex + 1}`}
-                    className="h-full w-full object-cover"
-                  />
-
-                  {/* أزرار التنقل */}
-                  {product.images.length > 1 && (
-                    <>
-                      <Button
-                        variant="secondary"
-                        size="icon"
-                        className="absolute top-1/2 right-4 -translate-y-1/2 rounded-full opacity-80 hover:opacity-100"
-                        onClick={prevImage}
-                      >
-                        <ChevronRight className="h-5 w-5" />
-                      </Button>
-                      <Button
-                        variant="secondary"
-                        size="icon"
-                        className="absolute top-1/2 left-4 -translate-y-1/2 rounded-full opacity-80 hover:opacity-100"
-                        onClick={nextImage}
-                      >
-                        <ChevronLeft className="h-5 w-5" />
-                      </Button>
-                    </>
-                  )}
-
-                  {/* مؤشر الصور */}
-                  <div className="absolute bottom-4 left-1/2 flex -translate-x-1/2 gap-2">
-                    {product.images.map((_, index) => (
-                      <button
-                        key={index}
-                        onClick={() => setCurrentImageIndex(index)}
-                        className={`h-2 rounded-full transition-all ${
-                          index === currentImageIndex ? "w-8 bg-white" : "w-2 bg-white/50"
-                        }`}
-                      />
-                    ))}
-                  </div>
-                </div>
-
-                {/* الصور المصغرة */}
-                {product.images.length > 1 && (
-                  <div className="mt-4 grid grid-cols-4 gap-2">
-                    {product.images.map((image, index) => (
-                      <button
-                        key={index}
-                        onClick={() => setCurrentImageIndex(index)}
-                        className={`relative aspect-square overflow-hidden rounded-lg ${
-                          index === currentImageIndex ? "ring-2 ring-primary" : "opacity-60 hover:opacity-100"
-                        }`}
-                      >
-                        <img
-                          src={`https://cornflowerblue-albatross-308247.hostingersite.com/${image}` || "/placeholder.svg"}
-                          alt={`صورة ${index + 1}`}
-                          className="h-full w-full object-cover"
-                        />
-                      </button>
-                    ))}
-                  </div>
-                )}
-
-                {/* Like and Share Buttons */}
-                <div className="mt-6 flex items-center gap-3">
-                  <Button
-                    size="lg"
-                    onClick={() => setIsLiked(!isLiked)}
-                    className={`flex-1 gap-2 transition-colors duration-300 ${
-                    isLiked
-               ? "bg-red-500 text-white hover:bg-red-600"
-                : "bg-white text-gray-700 border border-gray-300 hover:bg-gray-100"
-               }`}
-                >
-          <Heart
-          className={`h-5 w-5 transition-colors duration-300 ${
-          isLiked ? "text-white fill-white" : "text-gray-500"
-          }`}
-        />
-        {isLiked ? "تم الإعجاب" : "أعجبني"}
-      </Button>     
-
-                  <div className="relative flex-1">
-                    <Button
-                      variant="outline"
-                      size="lg"
-                      onClick={() => setShowShareMenu(!showShareMenu)}
-                      className="w-full gap-2"
-                    >
-                      <Share2 className="h-5 w-5" />
-                      مشاركة
-                    </Button>
-
-                    {showShareMenu && (
-                      <Card className="absolute top-full left-0 right-0 z-10 mt-2 p-2">
-                        <div className="flex flex-col gap-1">
-                          <Button
-                            variant="ghost"
-                            className="w-full justify-start gap-2"
-                            onClick={() => handleShare("facebook")}
-                          >
-                            <Facebook className="h-4 w-4" />
-                            فيسبوك
-                          </Button>
-                          <Button
-                            variant="ghost"
-                            className="w-full justify-start gap-2"
-                            onClick={() => handleShare("twitter")}
-                          >
-                            <Twitter className="h-4 w-4" />
-                            تويتر
-                          </Button>
-                          <Button
-                            variant="ghost"
-                            className="w-full justify-start gap-2"
-                            onClick={() => handleShare("copy")}
-                          >
-                            <LinkIcon className="h-4 w-4" />
-                            نسخ الرابط
-                          </Button>
-                        </div>
-                      </Card>
-                    )}
-                  </div>
-                </div>
-              </div>
-
-              {/* Product Info */}
-              <div>
-                <h2 className="mb-4 text-2xl font-bold text-taka">وصف المنتج</h2>
-                <p className="mb-6 text-muted-foreground leading-relaxed">{product.fullDescription}</p>
-
-                {/* Benefits */}
-                <div className="mb-8">
-                  <h3 className="mb-3 text-xl font-semibold text-takar">المميزات والفوائد:</h3>
-                  <ul className="space-y-2">
-                    {product.benefits.map((benefit, index) => (
-                      <li key={index} className="flex items-center gap-2 text-muted-foreground">
-                        <Check className="h-5 w-5 shrink-0 text-primary" />
-                        <span>{benefit}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-
-                {/* Usage */}
-                <div className="mb-8 rounded-lg bg-muted/50 p-4">
-                  <h3 className="mb-2 font-semibold">الاستخدام المستهدف:</h3>
-                  <p className="text-muted-foreground">{product.usage}</p>
-                </div>
-
-                <Button asChild size="lg" className="w-full group bg-takar">
-                  <Link href="/contact">
-                    طلب عرض سعر
-                    <ArrowLeft className="mr-2 h-5 w-5 transition-transform group-hover:-translate-x-1" />
-                  </Link>
-                </Button>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Related Products */}
-        {/* <section className="bg-muted/30 py-16 lg:py-24">
-          <div className="container mx-auto px-4 lg:px-8">
-            <h2 className="mb-8 text-center text-3xl font-bold">منتجات أخرى قد تهمك</h2>
-            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-              {product
-                .filter((p) => p.id !== product.id)
-                .slice(0, 3)
-                .map((relatedProduct) => (
-                  <Link key={relatedProduct.id} href={`/products/${relatedProduct.id}`}>
-                    <Card className="group h-full cursor-pointer overflow-hidden transition-all hover:shadow-xl">
-                      <div className="relative aspect-[4/3] overflow-hidden">
-                        <img
-                          src={relatedProduct.images[0] || "/placeholder.svg"}
-                          alt={relatedProduct.title}
-                          className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
-                        />
-                        <Badge className="absolute top-4 right-4 bg-secondary text-secondary-foreground">
-                          {relatedProduct.badge}
-                        </Badge>
-                      </div>
-                      <div className="p-6">
-                        <h3 className="mb-2 text-xl font-bold">{relatedProduct.title}</h3>
-                        <p className="text-sm text-muted-foreground">{relatedProduct.titleEn}</p>
-                      </div>
-                    </Card>
-                  </Link>
-                ))}
-            </div>
-          </div>
-        </section> */}
-      </main>
-      <Footer />
-      <FloatingContact />
+          {/* الصور الحالية مع زر الحذف */}
+          {/* عرض الصور الحالية + الصور الجديدة */}
+<div className="flex gap-4 flex-wrap">
+  {/* الصور القديمة */}
+  {form.images.map((img, index) => (
+    <div key={`old-${index}`} className="relative">
+      <img
+        src={`https://cornflowerblue-albatross-308247.hostingersite.com/${img}`}
+        alt="product"
+        className="w-24 h-24 object-cover rounded-md"
+      />
+      <button
+        type="button"
+        onClick={() => handleRemoveImage(img)}
+        className="absolute top-0 right-0 bg-red-500 text-white rounded-full w-6 h-6 flex items-center justify-center"
+      >
+        ×
+      </button>
     </div>
-  )
- 
+  ))}
+
+  {/* الصور الجديدة */}
+  {form.newImages.map((file, index) => (
+    <div key={`new-${index}`} className="relative">
+      <img
+        src={URL.createObjectURL(file)}
+        alt="new"
+        className="w-24 h-24 object-cover rounded-md"
+      />
+      <button
+        type="button"
+        onClick={() =>
+          setForm(prev => ({
+            ...prev,
+            newImages: prev.newImages.filter((_, i) => i !== index)
+          }))
+        }
+        className="absolute top-0 right-0 bg-red-500 text-white rounded-full w-6 h-6 flex items-center justify-center"
+      >
+        ×
+      </button>
+    </div>
+  ))}
+</div>
+
+
+          {/* رفع صور جديدة */}
+          <div
+                          className="border-2 border-dashed rounded-xl p-6 text-center cursor-pointer hover:border-primary transition"
+                          onClick={() => document.getElementById("images").click()}
+                        >
+                          <ImagePlus className="mx-auto mb-2 h-10 w-10 text-muted-foreground" />
+                          <p className="text-sm text-muted-foreground">
+                            اضغط لاختيار الصور أو اسحبها هنا
+                          </p>
+          <Input id="images" hidden type="file" multiple onChange={handleNewImages} />
+                         
+                        </div>
+
+          <Button type="submit" className="mt-4">حفظ التعديلات</Button>
+        </form>
+      </CardContent>
+    </Card>
+    <Footer/>
+   </div>
+  );
 }

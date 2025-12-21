@@ -1,7 +1,7 @@
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Analytics } from "@vercel/analytics/next";
-
+import { Toaster } from "@/components/ui/sonner"
 export const metadata = {
   title: "لوحة تحكم مصنع التكامل للأعلاف",
   description:
@@ -19,6 +19,8 @@ export default function RootLayout({ children }) {
           disableTransitionOnChange
         >
           {children}
+           <Toaster position="top-center" richColors />
+         
         </ThemeProvider>
       </body>
     </html>

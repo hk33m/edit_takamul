@@ -11,6 +11,7 @@ import { ArrowLeft } from "lucide-react"
 import Link from "next/link"
 import Skeleton from "react-loading-skeleton";
 import 'react-loading-skeleton/dist/skeleton.css';
+import { toast } from "sonner"
 
 
 
@@ -39,25 +40,47 @@ export default function ProductsPage() {
     fetchProducts();
   }, []);
 
+  async function deleteProduct(productId) {
+  if (!confirm("هل أنت متأكد من حذف هذا المنتج؟")) return;
+
+  try {
+    const response = await fetch("https://cornflowerblue-albatross-308247.hostingersite.com/api/delete_product.php", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({ product_id: productId })
+    });
+
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+
+    const result = await response.json();
+
+    if (result.status === "success") {
+      toast.success("  تم حذف المنتج بنجاح");
+      setProducts(prev => prev.filter(p => p.id !== productId));
+    } else {
+      toast.error("   فشل حذف المنتج  ");
+    }
+  } catch (error) {
+    console.error("Error deleting product:", error);
+    toast.error("  حدث خطأ أثناء حذف المنتج ");
+  }
+}
+
+
+
    if (loading) {
   return <div className="dark:bg-[#64312C]">
     <Navbar title={"المنتجات"} color={"bg-green-900"} path={"/"}  />
-    <div className=" py-20 p-4  w-full animate-pulse bg-white shadow-sm">
-      {/* صورة المنتج */}
-      <div className="bg-gray-300 h-48 w-full rounded-md mb-4"></div>
-
-      {/* اسم المنتج */}
-      <div className="h-6 bg-gray-300 rounded w-3/4 mb-2"></div>
-
-      {/* وصف مختصر */}
-      <div className="h-4 bg-gray-300 rounded w-full mb-1"></div>
-      <div className="h-4 bg-gray-300 rounded w-5/6 mb-4"></div>
-
-      {/* السعر */}
-      <div className="h-6 bg-gray-300 rounded w-1/3 mb-4"></div>
-
-      {/* زر الإضافة للسلة */}
-      <div className="h-10 bg-gray-300 rounded w-full"></div>
+      <div className="flex flex-col space-y-3 p-4">
+      <Skeleton className="h-[125px] w-[250px] rounded-xl" />
+      <div className="space-y-2">
+        <Skeleton className="h-4 w-[250px]" />
+        <Skeleton className="h-4 w-[200px]" />
+      </div>
     </div>
    <Footer />
     </div>
@@ -115,9 +138,9 @@ if(!products || products == null || products.length===0){
                     </CardContent>
                     <CardFooter className={"space-x-4"}>
                     <Link key={product.id} href={`/products/${product.id}`}>
-                   <Button className={"bg-red-900 text-white "}>تعديل</Button>
+                   <Button className={"bg-green-900 text-white "}>تعديل</Button>
                    </Link>
-                   <Button className={"bg-green-900 text-white"}>حذف</Button>
+                   <Button onClick={() => deleteProduct(product.id)} className={"bg-red-900 text-white"}>حذف</Button>
                     </CardFooter>
 
 
