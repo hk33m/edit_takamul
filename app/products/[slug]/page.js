@@ -36,7 +36,7 @@ export default function EditProduct() {
     async function fetchProduct() {
       try {
         const res = await fetch(
-          `https://mediumturquoise-mandrill-992538.hostingersite.com/api/get_products.php?id=${slug}`
+          `https://lime-quail-363527.hostingersite.com/api/get_products.php?id=${slug}`
         );
         const data = await res.json();
         if (data) {
@@ -107,7 +107,7 @@ export default function EditProduct() {
 
     try {
       const res = await fetch(
-        `https://mediumturquoise-mandrill-992538.hostingersite.com/api/update_product.php`,
+        `https://lime-quail-363527.hostingersite.com/api/update_product.php`,
         {
           method: "POST",
           body: formData,
@@ -204,7 +204,7 @@ export default function EditProduct() {
               {form.images.map((img, index) => (
                 <div key={`old-${index}`} className="relative">
                   <img
-                    src={`https://mediumturquoise-mandrill-992538.hostingersite.com/${img}`}
+                    src={`https://lime-quail-363527.hostingersite.com/${img}`}
                     alt="product"
                     className="w-24 h-24 object-cover rounded-md"
                   />

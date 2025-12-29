@@ -39,7 +39,7 @@ export default function AddProductPage() {
 
     try {
       await axios.post(
-        "https://mediumturquoise-mandrill-992538.hostingersite.com/api/add_product.php",
+        "https://lime-quail-363527.hostingersite.com/api/add_product.php",
         formData
       );
       toast.success("  تم رفع المنتج بنجاح");
